@@ -1,7 +1,6 @@
 package IA;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,19 +14,31 @@ import java.io.FileReader;
  */
 public class neuron {
     /**
-     * File containing the weigths for the current neuron
+     * Name of the file containing the weigths for the current neuron
      */
-    FileReader weigthFile;
-    
+    String weigthFile;
+
+    int nbWeights;
     /**
      * Neuron constructor
      * 
      * @param layer current layer
      * @param neuron current neuron
+     * @param nameFile the name of the file containing the weigths for the current neuron
      */
-    public neuron(int layer, int neuron) {
+    public neuron(int layer, int neuron, String nameFile) {
         try {
-            this.weigthFile = new FileReader(".txt");
+            String line;
+            BufferedReader r = new BufferedReader(new FileReader(nameFile + ".txt"));
+            BufferedWriter w = new BufferedWriter(new FileWriter(weightFile + ".txt"));
+            this.nbWeights = 0;
+            while((line = file.readLine()) != null){
+                w.write(line, 0, line.length);
+                w.newLine();
+                this.nbWeights++;
+            }
+            w.close();
+            r.close();
         }catch(FileNotFoundException e){
             System.err.println("error, neuron weigth file not found : " + e);
         }
