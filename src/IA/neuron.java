@@ -30,14 +30,8 @@ public class neuron {
         try {
             String line;
             BufferedReader r = new BufferedReader(new FileReader(nameFile + ".txt"));
-            BufferedWriter w = new BufferedWriter(new FileWriter(weightFile + ".txt"));
-            this.nbWeights = 0;
-            while((line = file.readLine()) != null){
-                w.write(line, 0, line.length);
-                w.newLine();
-                this.nbWeights++;
-            }
-            w.close();
+            weightFile = nameFile;
+            this.nbWeights = r.readLine();
             r.close();
         }catch(FileNotFoundException e){
             System.err.println("error, neuron weigth file not found : " + e);
