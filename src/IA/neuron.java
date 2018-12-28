@@ -26,13 +26,13 @@ public class neuron {
      * 
      * @param layer current layer
      * @param neuron current neuron
-     * @param nameFile the name of the file containing the weigths for the current neuron
+     * @param fileName the name of the file containing the weigths for the current neuron
      */
-    public neuron(int layer, int neuron, String nameFile) {
+    public neuron(int layer, int neuron, String fileName) {
         try {
             String line;
-            BufferedReader r = new BufferedReader(new FileReader(nameFile + ".txt"));
-            weightFile = nameFile;
+            BufferedReader r = new BufferedReader(new FileReader(fileName + ".txt"));
+            weightFile = fileName;
             this.nbWeights = Integer.valueOf(r.readLine());
             r.close();
         }catch(FileNotFoundException e){
