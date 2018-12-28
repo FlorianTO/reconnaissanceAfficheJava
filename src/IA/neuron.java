@@ -20,7 +20,11 @@ public class neuron {
      */
     String weightFile;
 
+    /**
+     * Number of weigths for this neuron
+     */
     int nbWeights;
+    
     /**
      * Neuron constructor
      * 
@@ -30,9 +34,8 @@ public class neuron {
      */
     public neuron(int layer, int neuron, String fileName) {
         try {
-            String line;
             BufferedReader r = new BufferedReader(new FileReader(fileName + ".txt"));
-            this.weightFile = fileName;
+            weightFile = fileName;
             this.nbWeights = Integer.valueOf(r.readLine());
             r.close();
         }catch(FileNotFoundException e){
