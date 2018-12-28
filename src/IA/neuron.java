@@ -1,6 +1,8 @@
 package IA;
 
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,7 +18,7 @@ public class neuron {
     /**
      * Name of the file containing the weigths for the current neuron
      */
-    String weigthFile;
+    String weightFile;
 
     int nbWeights;
     /**
@@ -31,10 +33,12 @@ public class neuron {
             String line;
             BufferedReader r = new BufferedReader(new FileReader(nameFile + ".txt"));
             weightFile = nameFile;
-            this.nbWeights = r.readLine();
+            this.nbWeights = Integer.valueOf(r.readLine());
             r.close();
         }catch(FileNotFoundException e){
             System.err.println("error, neuron weigth file not found : " + e);
+        } catch (IOException ex) {
+            System.err.println("error, neuron number non-writen : " + ex);
         }
     }
 }
