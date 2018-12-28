@@ -30,7 +30,7 @@ public class neuron {
         try {
             String line;
             BufferedReader r = new BufferedReader(new FileReader(nameFile + ".txt"));
-            weightFile = nameFile;
+            this.weightFile = nameFile;
             this.nbWeights = r.readLine();
             r.close();
         }catch(FileNotFoundException e){
